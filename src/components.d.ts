@@ -20,6 +20,13 @@ export namespace Components {
          */
         "middle": string;
     }
+    interface MyFirstComponent {
+        "name": string;
+    }
+    interface MyFistComponent {
+    }
+    interface PageHome {
+    }
 }
 declare global {
     interface HTMLMyComponentElement extends Components.MyComponent, HTMLStencilElement {
@@ -28,8 +35,29 @@ declare global {
         prototype: HTMLMyComponentElement;
         new (): HTMLMyComponentElement;
     };
+    interface HTMLMyFirstComponentElement extends Components.MyFirstComponent, HTMLStencilElement {
+    }
+    var HTMLMyFirstComponentElement: {
+        prototype: HTMLMyFirstComponentElement;
+        new (): HTMLMyFirstComponentElement;
+    };
+    interface HTMLMyFistComponentElement extends Components.MyFistComponent, HTMLStencilElement {
+    }
+    var HTMLMyFistComponentElement: {
+        prototype: HTMLMyFistComponentElement;
+        new (): HTMLMyFistComponentElement;
+    };
+    interface HTMLPageHomeElement extends Components.PageHome, HTMLStencilElement {
+    }
+    var HTMLPageHomeElement: {
+        prototype: HTMLPageHomeElement;
+        new (): HTMLPageHomeElement;
+    };
     interface HTMLElementTagNameMap {
         "my-component": HTMLMyComponentElement;
+        "my-first-component": HTMLMyFirstComponentElement;
+        "my-fist-component": HTMLMyFistComponentElement;
+        "page-home": HTMLPageHomeElement;
     }
 }
 declare namespace LocalJSX {
@@ -47,8 +75,18 @@ declare namespace LocalJSX {
          */
         "middle"?: string;
     }
+    interface MyFirstComponent {
+        "name"?: string;
+    }
+    interface MyFistComponent {
+    }
+    interface PageHome {
+    }
     interface IntrinsicElements {
         "my-component": MyComponent;
+        "my-first-component": MyFirstComponent;
+        "my-fist-component": MyFistComponent;
+        "page-home": PageHome;
     }
 }
 export { LocalJSX as JSX };
@@ -56,6 +94,9 @@ declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
             "my-component": LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
+            "my-first-component": LocalJSX.MyFirstComponent & JSXBase.HTMLAttributes<HTMLMyFirstComponentElement>;
+            "my-fist-component": LocalJSX.MyFistComponent & JSXBase.HTMLAttributes<HTMLMyFistComponentElement>;
+            "page-home": LocalJSX.PageHome & JSXBase.HTMLAttributes<HTMLPageHomeElement>;
         }
     }
 }
